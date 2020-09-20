@@ -1,0 +1,17 @@
+{
+    "env": "dev",
+    "baseUrl": "https://dev.billgateway.ayopop.id/billermanager/v1",
+    "apiEndpoints": {
+        "login": "/auth/login"
+    },
+    "apiCollections": {
+        "login": {
+            "method": "post",
+            "endpoint": "/auth/login",
+            "body": {},
+            "queryParams": {
+                "id": 1
+            }
+        }
+    }
+}

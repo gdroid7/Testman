@@ -1,0 +1,32 @@
+{
+  "name": "do-neet-testing",
+  "version": "1.0.0",
+  "description": "Unit-testing-boilerplate",
+  "main": "index.js",
+  "author": "gdroid",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "gulp-cli": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.12",
+    "@types/mocha": "^8.0.3",
+    "axios": "^0.20.0",
+    "chai": "^4.2.0",
+    "gulp": "4.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "mocha": "^8.1.3",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  },
+  "scripts": {
+    "start": "gulp build && node ./dist/app.js",
+    "test": "mocha -r ts-node/register",
+    "test:all": "mocha -r ts-node/register test/**/*.ts",
+    "test:brs": "mocha -r ts-node/register test/brs/${npm_config_env}/**/*.ts",
+    "test:brs:dev": "mocha -r ts-node/register test/brs/dev/**/*.ts",
+    "test:brs:stage": "mocha -r ts-node/register test/brs/stage/**/*.ts"
+  }
+}

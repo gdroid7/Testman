@@ -1,6 +1,6 @@
 {
     "env": "dev",
-    "baseUrl": "http://13.126.115.212:30808/",
+    "baseURL": "http://13.126.115.212:30808/",
     "apiEndpoints": {
         "login": "/auth/login",
         "healthCheck": "/api/healthCheck"
@@ -8,7 +8,7 @@
     "apiCollections": {
         "healthCheck": {
             "method": "get",
-            "endpoint": "/auth/login",
+            "endpoint": "/api/healthCheck",
             "body": {}
         },
         "login": {

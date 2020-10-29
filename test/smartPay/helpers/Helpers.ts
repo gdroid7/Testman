@@ -1,21 +1,27 @@
 import axios from 'axios';
 import config from '../../../config/smartPay/config.dev.json';
-
-let baseURL: string = config.baseURL;
+import configTypes from '../../../src/types';
 export default class Helpers {
 
-    baseURL: string = config.baseURL;
+    private static baseURL: string = config.baseURL;
 
-    static async callAPI(config: any) {
+    static async callAPI(config: configTypes) {
 
         if (config.method.toLowerCase() == 'get') {
-
-            return await axios.get(baseURL + config.endpoint, config.body);
+            return await axios.get(this.baseURL + config.endpoint, config.body)
+                .then(r => {
+                    return r.data;
+                }).catch(e => {
+                    return e.response.data;
+                });
 
         } else if (config.method.toLowerCase() == 'post') {
-
-            return await axios.post(config.endpoint, config.body);
-
+            return await axios.post(this.baseURL + config.endpoint, config.body)
+                .then(r => {
+                    return r.data;
+                }).catch(e => {
+                    return e.response.data;
+                });
         }
 
     }

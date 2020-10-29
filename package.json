@@ -27,6 +27,7 @@
     "test:all": "mocha -r ts-node/register test/**/*.ts",
     "test:brs": "mocha -r ts-node/register test/brs/${npm_config_env}/**/*.ts",
     "test:brs:dev": "mocha -r ts-node/register test/brs/dev/**/*.ts",
-    "test:brs:stage": "mocha -r ts-node/register test/brs/stage/**/*.ts"
+    "test:brs:stage": "mocha -r ts-node/register test/brs/stage/**/*.ts",
+    "test:smartPay:schoolList": "mocha -r ts-node/register test/smartPay/dev/schoolList.spec.ts"
   }
 }

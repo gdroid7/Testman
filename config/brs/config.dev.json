@@ -1,0 +1,140 @@
+{
+    "env": "dev",
+    "baseUrl": "https://dev.billgateway.ayopop.id/v1/billermanager",
+    "apiEndpoints": {
+        "login": "/api/auth/signIn",
+        "healthCheck": "/api/accounts/list"
+    },
+    "apiCollections": {
+        "login": {
+            "method": "post",
+            "endpoint": "/api/auth/signIn",
+            "body": {
+                "useremail":"securetest@mailinator.com",
+                "userpassword":"Haveatest@09"
+            }
+        },
+        "getdetails": {
+            "method": "post",
+            "endpoint": "api/user/getdetails",
+            "body": {
+                "id":43
+            },
+            "headers": {
+                "Authorization": "Bearer "
+            }
+        },
+        "deleteidpel":{
+            "method":"post",
+            "endpoint":"/api/account/delete",
+            "body":{
+                "idpel":"3014925",
+                "productCode":"PMSRBY",
+                "fundHolderID":"Customer0013"       
+            },
+            "headers": {
+                "Authorization": "Bearer "
+            }
+        },
+          "userupdate":{
+           "method": "post",
+           "endpoint": "/api/user/update",
+           "body":  {
+                "id": 59,
+                "status": 1
+            },
+            "headers": {
+                "Authorization": "Bearer "
+            }
+        },
+
+        "updatepassword": {
+            "method" : "post",
+            "endpoint": "/api/user/changepassword",
+            "body":{
+                
+                    "oldpassword": "Test@123",
+                    "newpassword": "Test@123",
+                    "confirmpassword": "Test@123"
+            },
+            "headers": {
+                "Authorization": "Bearer "
+            }
+        },
+        "setpassword": {
+            "method":"post",
+            "endpoint":"/auth/setpassword",
+            "body":{
+                    "password":"1234",
+                    "confirmpassword":"1234"
+                },
+                "headers": {
+                    "Authorization": "Bearer "
+                }
+            },
+        "userslist":{
+            "method": "post",
+            "endpoint": "/api/accounts/list",
+            "body":{
+                "filters":{
+                    "page":1
+                }
+            },
+                "headers": {
+                    "Authorization": "Bearer "
+                }
+            }
+
+        },
+        "usercreate":{
+            "method": "post",
+            "endpoint":"/api/user/create",
+            "body":{
+                    "name": "Labha",
+                    "email": "labha.bissa@mailinator.com",
+                    "permissions":[
+                        "biller-dashboard.users.create",
+                        "biller-dashboard.users.update"
+                        ]
+                
+            },
+            "headers": {
+                "Authorization": "Bearer "
+            }
+        },
+        "transactions":{
+            "method":"post",
+            "endpoint":"/api/transactions",
+            "body":{},
+            "headers": {
+                "Authorization": "Bearer "
+            }
+        },
+
+        "downloadtransactions": {
+            "method": "post",
+            "endpoint": "/api/transactions/download",
+            "body":{
+                "filters":{
+                    "duration":{
+                        "from":"2019-11-01",
+                        "to":"2019-11-14"
+                    }
+                }
+            },
+                "headers": {
+                    "Authorization": "Bearer "
+                }
+            },
+            "emailreportcron":{
+                "method": "get",
+                "endpoint": "/api/reports/transaction/daily",
+                "body":{},
+                "headers": {
+                    "Authorization": "Bearer "
+                }
+            }
+        }        
+    
+
+

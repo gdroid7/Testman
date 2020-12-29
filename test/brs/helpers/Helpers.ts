@@ -1,5 +1,5 @@
 import axios from 'axios';
-import config from '../../../config/brs/config.dev.json';
+import config from '../../../config/brs/config.stage.json';
 export default class Helpers {
 
     private static baseURL: string = config.baseUrl;

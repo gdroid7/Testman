@@ -1,6 +1,6 @@
 {
     "env": "dev",
-    "baseUrl": "https://stage.billgateway.ayopop.id/v1/billermanager",
+    "baseUrl": "https://dev.billgateway.ayopop.id/v1/billermanager",
     "apiEndpoints": {
         "login": "/api/auth/signIn",
         "getdetails": "/api/user/getdetails",
@@ -19,15 +19,15 @@
             "method": "post",
             "endpoint": "/api/auth/signIn",
             "body": {
-                "useremail":"labhabissa@ayopop.com",
-                "userpassword":"Ayopop@123"
+                "useremail":"securetest@mailinator.com",
+                "userpassword":"Test@123"
             }
         },
         "invalidlogin": {
             "method": "post",
             "endpoint": "/api/auth/signIn",
             "body": {
-                "useremail":"labhabissa@ayopop.com",
+                "useremail":"labhabissa@gmail.com",
                 "userpassword":"Test@123"
             }
         },
@@ -43,9 +43,9 @@
             "method":"post",
             "endpoint":"/api/account/delete",
             "body":{
-                "idpel":"3014925",
-                "productCode":"PMSRBY",
-                "fundHolderID":"Customer0010"       
+                "idpel":"181210033243",
+                "productCode":"INGIG",
+                "fundHolderID":"CUS2349"       
             },
             "headers": {
                 "Authorization": "Bearer "

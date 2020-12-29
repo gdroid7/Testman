@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import Helper from '../../helpers/Helpers'
-import config from '../../../../config/brs/config.dev.json';
+import config from '../../../../config/brs/config.stage.json';
 
 let jwtToken:string;
 
@@ -29,8 +29,7 @@ describe('Testing on Biller Dashboard', async () => {
         apiOptions.headers.Authorization+= jwtToken;
 
         let userLogResponse: any = await Helper.callAPI(config.apiCollections.getdetails);
-        console.log("User Details response");
-        console.log(userLogResponse);
+        console.table({"user details response": userLogResponse});
         expect(userLogResponse.message).to.be.equals("Partner user account details.");
         expect(userLogResponse).to.be.not.equals(null);
         expect(userLogResponse.statusCode).to.be.equals(200);
@@ -46,12 +45,12 @@ describe('Testing on Biller Dashboard', async () => {
         apiOptions.headers.Authorization+= jwtToken;
         
         let deleteApiResponse: any = await Helper.callAPI(config.apiCollections.deleteidpel);
-        console.log("Delete Account response");
-        console.log(deleteApiResponse);
-       // expect(deleteApiResponse.data.message).to.be.equals("Kamu tidak bisa menghapus IDPEL ini sekarang untuk alasan keamanan data.\n\t\tSilahkan hubungi Tim Ayoconnect untuk tindak lanjut");
+        console.table({"delete idpel response":deleteApiResponse});
         expect(deleteApiResponse).to.be.not.equals(null);
         expect(deleteApiResponse.statusCode).to.be.equals(403);
         expect(deleteApiResponse.data.token).to.be.not.equals(null);
+        expect(deleteApiResponse.message).to.be.equals("Kamu tidak bisa menghapus IDPEL ini sekarang untuk alasan keamanan data.\n\t\tSilahkan hubungi Tim Ayoconnect untuk tindak lanjut.");
+
         });
         
         it('should call User Accounts api and return status code 200', async function () {
@@ -60,8 +59,7 @@ describe('Testing on Biller Dashboard', async () => {
             apiOptions.headers.Authorization+= jwtToken;
     
             let userApiResponse: any = await Helper.callAPI(config.apiCollections.userslist);
-            console.log("User Accounts response");
-            console.log(userApiResponse);
+            console.table({"user accounts response": userApiResponse});
             expect(userApiResponse.message).to.be.equals("Account information fetched successfully.");
             expect(userApiResponse).to.be.not.equals(null);
             expect(userApiResponse.statusCode).to.be.equals(200);
@@ -74,12 +72,10 @@ describe('Testing on Biller Dashboard', async () => {
             apiOptions.headers.Authorization+= jwtToken;
     
             let userupdateApiResponse: any = await Helper.callAPI(config.apiCollections.userupdate);
-            console.log("User Update response");
-            console.log(userupdateApiResponse);
-            expect(userupdateApiResponse.message).to.be.equals("Biller User created successfully.");
+            console.table({"user update response": userupdateApiResponse});
+            expect(userupdateApiResponse.message).to.be.equals("Biller User updated successfully.");
             expect(userupdateApiResponse).to.be.not.equals(null);
             expect(userupdateApiResponse.statusCode).to.be.equals(200);
-            expect(userupdateApiResponse.data.token).to.be.not.equals(null);
         });
 
     });

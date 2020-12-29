@@ -1,25 +1,41 @@
 {
     "env": "dev",
-    "baseUrl": "https://dev.billgateway.ayopop.id/v1/billermanager",
+    "baseUrl": "https://stage.billgateway.ayopop.id/v1/billermanager/v1",
     "apiEndpoints": {
-        "login": "/api/auth/signIn",
-        "healthCheck": "/api/accounts/list"
+        "validlogin": "/api/auth/signIn",
+        "invalidlogin": "/api/auth/signIn",
+        "getdetails": "/api/user/getdetails",
+        "deleteidpel": "/api/account/delete",
+        "userupdate":"/api/user/update",
+        "updatepassword": "/api/user/changepassword",
+        "setpassword": "/auth/setpassword",
+        "userslist":"/api/accounts/list",
+        "usercreate":"/api/user/create",
+        "transactions": "/api/transactions",
+        "downloadtransactions": "/api/transactions/download",
+        "emailreportcron": "/api/reports/transaction/daily"
     },
     "apiCollections": {
-        "login": {
+        "validlogin": {
             "method": "post",
             "endpoint": "/api/auth/signIn",
             "body": {
-                "useremail":"securetest@mailinator.com",
-                "userpassword":"Haveatest@09"
+                "useremail":"labhabissa@ayopop.com",
+                "userpassword":"Ayopop@123"
+            }
+        },
+        "invalidlogin": {
+            "method": "post",
+            "endpoint": "/api/auth/signIn",
+            "body": {
+                "useremail":"labhabissa@ayopop.com",
+                "userpassword":"Test@123"
             }
         },
         "getdetails": {
             "method": "post",
-            "endpoint": "api/user/getdetails",
-            "body": {
-                "id":393
-            },
+            "endpoint": "/api/user/getdetails",
+            "body": {"id":393},
             "headers": {
                 "Authorization": "Bearer "
             }

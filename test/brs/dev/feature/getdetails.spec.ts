@@ -11,7 +11,7 @@ describe('Testing on Biller Dashboard', async () => {
     
     it('should call login api and return status code 200', async function () {
 
-        let resp: any = await Helper.callAPI(config.apiCollections.login);
+        let resp: any = await Helper.callAPI(config.apiCollections.validlogin);
         
         expect(resp).to.be.not.equals(null);
         expect(resp.statusCode).to.be.equals(200);
@@ -31,7 +31,7 @@ describe('Testing on Biller Dashboard', async () => {
         let userLogResponse: any = await Helper.callAPI(config.apiCollections.getdetails);
         console.log("User Details response");
         console.log(userLogResponse);
-        //expect(userLogResponse.data.message).to.be.equals("Partner user account details.");
+        expect(userLogResponse.message).to.be.equals("Partner user account details.");
         expect(userLogResponse).to.be.not.equals(null);
         expect(userLogResponse.statusCode).to.be.equals(200);
         expect(userLogResponse.data.token).to.be.not.equals(null);
@@ -50,7 +50,7 @@ describe('Testing on Biller Dashboard', async () => {
         console.log(deleteApiResponse);
        // expect(deleteApiResponse.data.message).to.be.equals("Kamu tidak bisa menghapus IDPEL ini sekarang untuk alasan keamanan data.\n\t\tSilahkan hubungi Tim Ayoconnect untuk tindak lanjut");
         expect(deleteApiResponse).to.be.not.equals(null);
-        expect(deleteApiResponse.statusCode).to.be.equals(200);
+        expect(deleteApiResponse.statusCode).to.be.equals(403);
         expect(deleteApiResponse.data.token).to.be.not.equals(null);
         });
         
@@ -62,7 +62,7 @@ describe('Testing on Biller Dashboard', async () => {
             let userApiResponse: any = await Helper.callAPI(config.apiCollections.userslist);
             console.log("User Accounts response");
             console.log(userApiResponse);
-           // expect(userApiResponse.data.message).to.be.equals("Account information fetched successfully.");
+            expect(userApiResponse.message).to.be.equals("Account information fetched successfully.");
             expect(userApiResponse).to.be.not.equals(null);
             expect(userApiResponse.statusCode).to.be.equals(200);
             expect(userApiResponse.data.token).to.be.not.equals(null);
@@ -76,7 +76,7 @@ describe('Testing on Biller Dashboard', async () => {
             let userupdateApiResponse: any = await Helper.callAPI(config.apiCollections.userupdate);
             console.log("User Update response");
             console.log(userupdateApiResponse);
-            //expect(userupdateApiResponse.data.message).to.be.equals("Biller User created successfully.");
+            expect(userupdateApiResponse.message).to.be.equals("Biller User created successfully.");
             expect(userupdateApiResponse).to.be.not.equals(null);
             expect(userupdateApiResponse.statusCode).to.be.equals(200);
             expect(userupdateApiResponse.data.token).to.be.not.equals(null);

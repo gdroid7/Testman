@@ -11,7 +11,7 @@ describe('Testing for Password feature on Biller Dashboard', async () => {
 
     it('should call login api and return status code 200', async function () {
 
-        let resp: any = await Helper.callAPI(config.apiCollections.login);
+        let resp: any = await Helper.callAPI(config.apiCollections.validlogin);
         
         expect(resp).to.be.not.equals(null);
         expect(resp.statusCode).to.be.equals(200);

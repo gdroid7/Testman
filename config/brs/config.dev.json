@@ -1,9 +1,8 @@
 {
     "env": "dev",
-    "baseUrl": "https://stage.billgateway.ayopop.id/v1/billermanager/v1",
+    "baseUrl": "https://stage.billgateway.ayopop.id/v1/billermanager",
     "apiEndpoints": {
-        "validlogin": "/api/auth/signIn",
-        "invalidlogin": "/api/auth/signIn",
+        "login": "/api/auth/signIn",
         "getdetails": "/api/user/getdetails",
         "deleteidpel": "/api/account/delete",
         "userupdate":"/api/user/update",
@@ -35,7 +34,7 @@
         "getdetails": {
             "method": "post",
             "endpoint": "/api/user/getdetails",
-            "body": {"id":393},
+            "body": {"id":80},
             "headers": {
                 "Authorization": "Bearer "
             }
@@ -56,7 +55,7 @@
            "method": "post",
            "endpoint": "/api/user/update",
            "body":  {
-                "id": 393,
+                "id": 418,
                 "status": 1
             },
             "headers": {
@@ -69,9 +68,9 @@
             "endpoint": "/api/user/changepassword",
             "body":{
                 
-                    "oldpassword": "Test@123",
-                    "newpassword": "Test@123",
-                    "confirmpassword": "Test@123"
+                    "oldpassword": "Ayopop@123",
+                    "newpassword": "Ayopop@123",
+                    "confirmpassword": "Ayopop@123"
             },
             "headers": {
                 "Authorization": "Bearer "

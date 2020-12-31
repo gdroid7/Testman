@@ -8,6 +8,7 @@ describe('Testing on Biller Dashboard', async () => {
 
     let jwtToken: string;//store jwt token
     let didLogIn: boolean = false;//check if user got logged in : use this to skip irrelevant tests
+    let message: string;
     
     it('should call login api and return status code 200', async function () {
 
@@ -60,10 +61,12 @@ describe('Testing on Biller Dashboard', async () => {
     
             let userApiResponse: any = await Helper.callAPI(config.apiCollections.userslist);
             console.table({"user accounts response": userApiResponse});
+            console.log(JSON.stringify(userApiResponse.data));
             expect(userApiResponse.message).to.be.equals("Account information fetched successfully.");
             expect(userApiResponse).to.be.not.equals(null);
             expect(userApiResponse.statusCode).to.be.equals(200);
             expect(userApiResponse.data.token).to.be.not.equals(null);
+            expect(userApiResponse.data.accounts.data.length).to.be.equals(9);
         });
 
         it('should call User update api and return status code 200', async function () {

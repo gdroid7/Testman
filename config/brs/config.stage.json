@@ -92,7 +92,7 @@
             "endpoint": "/api/accounts/list",
             "body":{
                 "filters":{
-                    "page":3
+                    "page":1
                 }
             },
                 "headers": {
